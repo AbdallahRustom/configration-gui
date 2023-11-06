@@ -1,0 +1,24 @@
+<div class="form"> 
+    <div class="tab-content">
+        <form action="{% url 'cdr' %}" method="post">
+            {% csrf_token %}
+            <div id="cdr">   
+            <h1>CDR Reports</h1>
+            <button name="submit_type" value="getcdr" class="button button-block">Get CDR</button>
+            <button name="submit_type" value="viewcdr" class="button button-block">View CDR</button>
+        </form>
+        <form action="{% url 'cdr' %}" method="post">
+            {% csrf_token %}
+            <h1>Delete CDR</h1>
+            <div class="field-wrap">
+                <label>
+                    CDR Name<span class="req">*</span>
+                </label>
+                <input type="text" name="CDR" required autocomplete="off"/>
+            </div>
+            <button name="submit_type" value="deletecdr" class="button button-block">Delete CDR</button>
+
+        <body>
+            <pre>{{ error_message }}</pre>  
+          </body>
+    </div>

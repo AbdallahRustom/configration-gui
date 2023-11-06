@@ -1,0 +1,17 @@
+<form action="{% url 'apn' %}" method="get">
+    {% csrf_token %}
+    <button type="submit" class="Submit"/>APN Configration</button>
+</div>
+</form>
+
+<form action="{% url 'env' %}" method="get">
+    {% csrf_token %}
+    <button type="submit" class="Submit"/>Enviroment Configration</button>
+</div>
+</form> 
+
+<form action="{% url 'cdr' %}" method="get">
+    {% csrf_token %}
+    <button type="submit" class="Submit"/>CDR</button>
+</div>
+</form> 

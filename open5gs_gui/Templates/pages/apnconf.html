@@ -1,0 +1,104 @@
+<div class="form"> 
+  <div class="tab-content">
+      <div id="APN Configuration">   
+          <h1>APN Configuration</h1>
+          <form action="{% url 'apn' %}" method="post">
+              {% csrf_token %} 
+              <div class="field-wrap">
+                  <label>
+                      APN-Name<span class="req">*</span>
+                  </label>
+                  <input type="text" name="dnn" required autocomplete="off"/>
+              </div>
+              
+              <div class="field-wrap">
+                  <label>
+                      IPV4 Subnet<span class="req">*</span>
+                  </label>
+                  <input type="text" name="addr" required autocomplete="off"/>
+              </div>
+
+              <div class="field-wrap">
+                  <label>
+                      IPV6 Subnet<span class="req">*</span>
+                  </label>
+                  <input type="text" name="addr2" required autocomplete="off"/>
+              </div>
+  
+              <div class="field-wrap">
+                  <label>
+                      Interface<span class="req">*</span>
+                  </label>
+                  <input type="text" name="dev" required autocomplete="off"/>
+              </div>
+              
+              <br> <!-- Line break -->
+              
+              <button name="submit_type" value="saveconfig" class="button button-block">Save Config</button>
+              <button name="submit_type" value="saverestart" class="button button-block">Save Config and Restart Service</button>
+          </form>
+          
+          <form action="{% url 'apn' %}" method="post">
+              {% csrf_token %}
+              <h1>View APN Configuration</h1>
+              <button name="submit_type" value="viewapn" class="button button-block">View Current Config APN</button>
+              <button name="submit_type" value="applyconfig" class="button button-block">Apply Current Config</button>
+          </form>
+
+          <form action="{% url 'apn' %}" method="post">
+            {% csrf_token %}
+            <h1>Delete APN </h1>
+            <div class="field-wrap">
+                <label>
+                    APN Name<span class="req">*</span>
+                </label>
+                <input type="text" name="apnname" required autocomplete="off"/>
+            </div>
+
+            <br> <!-- Line break -->
+            
+            <button name="submit_type" value="deleteapn" class="button button-block">Delete APN</button>
+            <button name="submit_type" value="deleterestartapn" class="button button-block">Delete APN And Restart Service</button>
+        </form>
+
+        <form action="{% url 'apn' %}" method="post">
+            {% csrf_token %}
+            <h1>Modify APN </h1>
+            <div class="field-wrap">
+                <label>
+                    APN Name<span class="req">*</span>
+                </label>
+                <input type="text" name="modifiedapn" required autocomplete="off"/>
+            </div>
+            <div class="field-wrap">
+                <label>
+                    IPV4 Subnet
+                </label>
+                <input type="text" name="modifiedaddr"  autocomplete="off"/>
+            </div>
+            <div class="field-wrap">
+                <label>
+                    IPV6 Subnet
+                </label>
+                <input type="text" name="modifiedaddr2"  autocomplete="off"/>
+            </div>
+            <div class="field-wrap">
+                <label>
+                    interface
+                </label>
+                <input type="text" name="modifieddev"  autocomplete="off"/>
+            </div>
+
+            <br> <!-- Line break -->
+            
+            <button name="submit_type" value="modifiyapn" class="button button-block">Modify APN</button>
+            <button name="submit_type" value="modifiysaveapn" class="button button-block">Modify APN And Restart Service</button>
+        </form>
+          
+          <body>
+            <pre>{{ error_message }}</pre>  
+          </body>
+      </div>
+  </div><!-- tab-content -->
+</div> <!-- /form -->
+
